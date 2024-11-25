@@ -58,7 +58,7 @@ export const ReceivedMessage = ({
 
   const url = text;
 
-const fileName = getFileNameFromUrl(url);
+  const fileName = getFileNameFromUrl(url);
 
   return (
     <div className="flex w-full justify-start mb-1">
@@ -67,13 +67,13 @@ const fileName = getFileNameFromUrl(url);
           <img src={photoURL} alt="" className="rounded-full" style={{ width: 30, height: 30 }} />
           <div className="bg-[rgb(247,77,233)] text-white rounded-e-3xl p-2">
             <div className="text-white p-3 max-w-md whitespace-pre-wrap break-words">
-            {isFile ? (
+              {isFile ? (
                 text.includes(".doc") || text.includes(".docx") || text.includes(".pdf") || text.includes(".txt") || text.includes(".xlsx") || text.includes(".xls") ? (
                   <a
-                  href={text}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-300 underline hover:text-blue-500"
+                    href={text}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-300 underline hover:text-blue-500"
                   >
                     <div className="flex items-center">
                       <img src="/folha.svg" alt="" style={{ width: 55, height: 55 }} />
@@ -83,18 +83,18 @@ const fileName = getFileNameFromUrl(url);
                 ) : (
                   <img src={text} alt="Imagem enviada" className="max-w-full max-h-40 rounded-md" />
                 )) : isValidUrl(text) ? (
-                <a
-                  href={text}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-300 underline hover:text-blue-500"
-                >
-                  {text}
-                </a>
+                  <a
+                    href={text}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-300 underline hover:text-blue-500"
+                  >
+                    {text}
+                  </a>
                 ) : (
-                  <p>{text}</p>
-                ) 
-                
+                <p>{text}</p>
+              )
+
               }
             </div>
           </div>
@@ -137,9 +137,9 @@ export const SentMessage = ({
 
   const url = text;
 
-const fileName = getFileNameFromUrl(url);
+  const fileName = getFileNameFromUrl(url);
 
-  
+
 
   return (
     <div className="flex w-full justify-end mb-1">
@@ -151,10 +151,10 @@ const fileName = getFileNameFromUrl(url);
               {isFile ? (
                 text.includes(".doc") || text.includes(".docx") || text.includes(".pdf") || text.includes(".txt") || text.includes(".xlsx") || text.includes(".xls") ? (
                   <a
-                  href={text}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-300 underline hover:text-blue-500"
+                    href={text}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-300 underline hover:text-blue-500"
                   >
                     <div className="flex items-center">
                       <img src="/folha.svg" alt="" style={{ width: 55, height: 55 }} />
@@ -164,18 +164,18 @@ const fileName = getFileNameFromUrl(url);
                 ) : (
                   <img src={text} alt="Imagem enviada" className="max-w-full max-h-40 rounded-md" />
                 )) : isValidUrl(text) ? (
-                <a
-                  href={text}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-300 underline hover:text-blue-500"
-                >
-                  {text}
-                </a>
+                  <a
+                    href={text}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-300 underline hover:text-blue-500"
+                  >
+                    {text}
+                  </a>
                 ) : (
-                  <p>{text}</p>
-                ) 
-                
+                <p>{text}</p>
+              )
+
               }
             </div>
           </div>
@@ -426,18 +426,20 @@ export default function MessageItem({ user, chatId }: any) {
             {/* Ícone de clipe */}
             {showDropdown && (
               <div>
-                <div className="dropdown absolute bg-[#3E2878] flex gap-2 shadow-lg p-2 rounded-md bottom-10 left-0 z-10 w-40">
-                  <div className="flex items-center gap-1 justify-center flex-col">
-                    <img
-                      src="/book.svg"
-                      alt="clipe"
-                      width={30}
-                      height={30}
-                      onClick={toggleActivity}
-                      className="cursor-pointer"
-                    />
-                    <p className="text-white text-sm font-bold">Atividade</p>
-                  </div>
+                <div className="dropdown absolute bg-[#3E2878] flex gap-2 shadow-lg p-2 rounded-md bottom-10 left-0 z-10 ">
+                  {userInfo.role === "Professor" &&
+                    <div className="flex items-center gap-1 justify-center flex-col">
+                      <img
+                        src="/book.svg"
+                        alt="clipe"
+                        width={30}
+                        height={30}
+                        onClick={toggleActivity}
+                        className="cursor-pointer"
+                      />
+                      <p className="text-white text-sm font-bold">Atividade</p>
+                    </div>
+                  }
                   <div>
 
                     {showactivity && (
