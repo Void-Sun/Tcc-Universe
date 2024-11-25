@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  width: full;
+  height: 100vh;
+  background-image: url('../public/fundo.jpg');
+  background-size: cover;
+  
+}
+
+.main {
+  height: 15rem;
+}
+
+
+/* Animação para o efeito de piscar */
+@keyframes twinkle {
+  0% {
+    opacity: 0.5;
+    transform: translate(0, 0);
+    
+  }
+  50% {
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translate(-2px, 2px);
+  }
+}
+
+/* Animação para o efeito de cair como estrelas */
+@keyframes fall {
+  0% {
+    transform: translateY(-200px); /* Começa acima da tela */
+  }
+  100% {
+    transform: translateY(100vh); /* Desce para fora da tela */
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle ease-in-out infinite;
+}
+
+.animate-fall {
+  animation: fall linear infinite; /* Efeito de cair */
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 1px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: blueviolet;
+}
