@@ -33,13 +33,32 @@ const isValidUrl = (text: string) => {
 export const ReceivedMessage = ({
   photoURL,
   text,
+  isFile, // Receba a propriedade isFile
   messageId,
   onDelete,
   senderUid,
   userRole,
   userId,
-}: MessageProps) => {
+}: MessageProps & { isFile: boolean }) => {
   const canDelete = userId === senderUid || userRole === "Professor";
+
+  const getFileNameFromUrl = (url: string): string | null => {
+    try {
+      // Extraia a parte do caminho do arquivo
+      const decodedUrl = decodeURIComponent(url); // Decodifica caracteres codificados
+      const parts = decodedUrl.split('/'); // Divide pelo separador "/"
+      const fileNameWithParams = parts[parts.length - 1]; // Pega a última parte do URL
+      const [fileName] = fileNameWithParams.split('?'); // Remove os parâmetros após "?"
+      return fileName || null;
+    } catch (error) {
+      console.error("Erro ao extrair nome do arquivo:", error);
+      return null;
+    }
+  };
+
+  const url = text;
+
+const fileName = getFileNameFromUrl(url);
 
   return (
     <div className="flex w-full justify-start mb-1">
@@ -48,7 +67,22 @@ export const ReceivedMessage = ({
           <img src={photoURL} alt="" className="rounded-full" style={{ width: 30, height: 30 }} />
           <div className="bg-[rgb(247,77,233)] text-white rounded-e-3xl p-2">
             <div className="text-white p-3 max-w-md whitespace-pre-wrap break-words">
-              {isValidUrl(text) ? (
+            {isFile ? (
+                text.includes(".doc") || text.includes(".docx") || text.includes(".pdf") || text.includes(".txt") || text.includes(".xlsx") || text.includes(".xls") ? (
+                  <a
+                  href={text}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-300 underline hover:text-blue-500"
+                  >
+                    <div className="flex items-center">
+                      <img src="/folha.svg" alt="" style={{ width: 55, height: 55 }} />
+                      {fileName && <span className="ml-2">{fileName}</span>}
+                    </div>
+                  </a>
+                ) : (
+                  <img src={text} alt="Imagem enviada" className="max-w-full max-h-40 rounded-md" />
+                )) : isValidUrl(text) ? (
                 <a
                   href={text}
                   target="_blank"
@@ -57,9 +91,11 @@ export const ReceivedMessage = ({
                 >
                   {text}
                 </a>
-              ) : (
-                <span>{text}</span>
-              )}
+                ) : (
+                  <p>{text}</p>
+                ) 
+                
+              }
             </div>
           </div>
           {canDelete && (
@@ -378,6 +414,8 @@ export default function MessageItem({ user, chatId }: any) {
                 userRole={userInfo.role}
                 userId={user?.id}
                 onDelete={handleDeleteMessage}
+                //@ts-ignore
+                isFile={message.isFile}
               />
             )
           ))}
