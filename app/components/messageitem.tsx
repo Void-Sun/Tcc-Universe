@@ -426,9 +426,9 @@ export default function MessageItem({ user, chatId }: any) {
             {/* Ícone de clipe */}
             {showDropdown && (
               <div>
-                <div className="dropdown absolute bg-[#3E2878] flex gap-2 shadow-lg p-2 rounded-md bottom-10 left-0 z-10 ">
+                <div className="dropdown absolute bg-[#3E2878] flex  shadow-lg p-2 rounded-md bottom-10 left-0 z-10 ">
                   {userInfo.role === "Professor" &&
-                    <div className="flex items-center gap-1 justify-center flex-col">
+                    <div className="flex items-center gap-1 mr-2 justify-center flex-col">
                       <img
                         src="/book.svg"
                         alt="clipe"

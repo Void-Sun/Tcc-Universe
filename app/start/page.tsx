@@ -288,8 +288,8 @@ export default function Home() {
     }
 
     return (
-        <div className="flex w-full h-full bg-[#0D081A] dark:bg-[#6b4cba]">
-            <div className="flex h-screen bg-[#0D081A] dark:bg-[#6b4cba]">
+        <div className="flex w-full h-full bg-[#0D081A] dark:bg-[#ffffff]">
+            <div className="flex h-screen bg-[#0D081A] dark:bg-[#cc98ff]">
                 <div className="flex justify-center h-full w-[21rem] p-6">
                     <div className="w-full h-full rounded-[3rem] bg-[#1E0D4A] dark:bg-[#483083] flex flex-col">
                         <div className="flex items-center my-3 justify-center w-full h-[3rem] gap-1">
@@ -352,7 +352,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="w-full h-full p-6 bg-[#0D081A] dark:bg-[#6b4cba]">
+            <div className="w-full h-full p-6 bg-[#0D081A] dark:bg-[#cc98ff]">
                 {activeChat ? (
                     <Chatroom user={user} chatId={activeChat.id} onClose={handleChatClose} />
                 ) : (

@@ -5,7 +5,7 @@ export default function Chat({ onClick, active, data, isFavorite, onFavoriteTogg
     
     return (
         <div 
-            className={`${active ? 'bg-[#735fa5a4]' : ''} flex items-center flex-col`} 
+            className={`${active ? 'bg-[#5519eba4]' : ''} flex items-center flex-col`} 
             onClick={onClick}
         >
             <div className="flex items-center w-full h-[4rem] justify-between hover:bg-[#40345da4] hover:rounded-[0.2rem] transition-colors ease-in-out duration-150 hover:cursor-pointer p-5">
