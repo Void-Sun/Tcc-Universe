@@ -64,7 +64,7 @@ export const ReceivedMessage = ({
     <div className="flex w-full justify-start mb-1">
       <div className="flex w-max gap-4">
         <div className="flex flex-row gap-1 items-center">
-          <img src={photoURL} alt="" className="rounded-full" style={{ width: 30, height: 30 }} />
+        <img src={photoURL} alt="" className="rounded-full" style={{ width: 30, height: 30 }} />
           <div className="bg-[rgb(247,77,233)] text-white rounded-e-3xl p-2">
             <div className="text-white p-3 max-w-md whitespace-pre-wrap break-words">
               {isFile ? (
@@ -144,8 +144,8 @@ export const SentMessage = ({
   return (
     <div className="flex w-full justify-end mb-1">
       <div className="flex w-max gap-4">
-        <div className="flex flex-row-reverse gap-1 items-center">
-          <img src={photoURL} alt="" className="rounded-full" style={{ width: 30, height: 30 }} />
+      <div className="flex flex-row-reverse gap-1 items-center">
+      <img src={photoURL} alt="" className="rounded-full" style={{ width: 30, height: 30 }} />
           <div className="bg-[rgb(105,52,184)] text-white rounded-s-3xl p-2">
             <div className="text-white p-3 max-w-md whitespace-pre-wrap break-words">
               {isFile ? (
@@ -395,7 +395,7 @@ export default function MessageItem({ user, chatId }: any) {
                 key={message.id}
                 messageId={message.id}
                 text={message.content}
-                photoURL={message.photoURL || user.avatar}
+                photoURL={message.photoURL || "/Guest.png"}
                 senderUid={message.senderUid}
                 userRole={userInfo.role}
                 userId={user?.id}
