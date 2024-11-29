@@ -120,7 +120,7 @@ export default function InfoModal({ isOpen, onClose, chatId }: { isOpen: boolean
                         <></>
                     )}
                 </div>
-                <h2 className="text-2xl text-white font-bold mb-4">Materia</h2>
+                <h2 className="text-2xl text-white font-bold mb-4">Matéria</h2>
                 <div className="bg-[#1E0D4A]  p-6 rounded-lg text-white relative flex flex-col items-center">
                     <div className="w-96">
                         <div className="mb-4 flex gap-2">

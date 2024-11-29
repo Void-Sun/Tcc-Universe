@@ -34,7 +34,7 @@ export default function Modal({ isOpen, onClose }: { isOpen: boolean; onClose: (
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-[#0D081A] rounded-lg p-6 w-[30rem]">
-                <h2 className="text-2xl text-white font-bold mb-4 flex justify-center">Criar Nova Materia</h2>
+                <h2 className="text-2xl text-white font-bold mb-4 flex justify-center">Criar Nova Matéria</h2>
                 <div className="bg-[#1E0D4A] p-6 rounded-lg  text-white relative flex flex-col items-center">
 
                     <div className="w-full">

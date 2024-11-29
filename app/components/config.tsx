@@ -102,12 +102,6 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-scroll scrollbar">
           <div className="bg-[#0D081A] w-full max-w-lg p-6 rounded-lg shadow-lg relative">
             <h2 className="text-xl text-white font-semibold mb-4">Termos e Condições</h2>
-            <button
-              onClick={() => setIsTermsOpen(false)}
-              className="absolute top-4 right-4 text-white-600 hover:text-gray-800"
-            >
-              X
-            </button>
             <div className=" overflow-y-auto h-96 scrollbar">
               <p className="text-white mb-4">
                 Estes são os Termos e Condições. Ao usar este aplicativo, você
